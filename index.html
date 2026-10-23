@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sustainable Project Hackathon | Tufts | Nov 14-15, 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800;900&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--forest:#0F3D2B;--night:#0A130E;--lime:#3DDC84;--paper:#F2EFE6;--paper-ink:#0C120E;--paper-muted:#4B5A4F;--paper-line:#CFCABA;--card:#E8E4D6;--on-dark:#F2EFE6;--dark-muted:#A9BCAF;--dark-line:#24503C;color-scheme:light;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#101A14;--paper-ink:#F2EFE6;--paper-muted:#A9BCAF;--paper-line:#24503C;--card:#16251C;color-scheme:dark}}
+:root[data-theme="dark"]{--paper:#101A14;--paper-ink:#F2EFE6;--paper-muted:#A9BCAF;--paper-line:#24503C;--card:#16251C;color-scheme:dark}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 64px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--paper-ink);font:400 17px/1.6 "Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--night);z-index:30}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:20;opacity:.07;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/></filter><rect width='160' height='160' filter='url(%23n)'/></svg>")}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--lime);outline-offset:3px}
+.mono{font-family:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;text-transform:uppercase;letter-spacing:.08em;font-size:.78rem;font-weight:700}
+.disp{font-family:"Big Shoulders Display","Arial Narrow",Impact,sans-serif;font-weight:900;text-transform:uppercase;line-height:.88;letter-spacing:-.005em}
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+.dark{background:var(--night);color:var(--on-dark)}
+.forest{background:var(--forest);color:var(--on-dark)}
+header{position:sticky;top:env(safe-area-inset-top,0px);background:rgba(10,19,14,.94);backdrop-filter:blur(8px);color:var(--on-dark);z-index:25;border-bottom:1px solid var(--dark-line)}
+nav{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:10px 0}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-size:1.35rem}
+.logo svg{width:34px;height:34px;flex:none}
+nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0}
+nav ul a{text-decoration:none;color:var(--dark-muted)}
+nav ul a:hover{color:var(--lime)}
+.btn{display:inline-block;background:var(--lime);color:#0C120E;font-family:"JetBrains Mono",monospace;font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:.9rem;padding:15px 26px;text-decoration:none;border:2px solid var(--lime);cursor:pointer;transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translate(-3px,-3px);box-shadow:5px 5px 0 var(--on-dark)}
+.btn.line{background:transparent;color:inherit;border-color:currentColor}
+.btn.line:hover{box-shadow:5px 5px 0 var(--lime)}
+.btn.sm{padding:9px 16px;font-size:.78rem}
+.hero{position:relative;overflow:hidden;padding:76px 0 0}
+#topo{position:absolute;inset:-5%;width:110%;height:110%;opacity:.35;pointer-events:none}
+#rain{position:absolute;inset:0;width:100%;height:100%;display:block;opacity:.6}
+.hero::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(ellipse at 30% 50%,rgba(10,19,14,.85) 15%,rgba(10,19,14,.2) 75%)}
+.hero .wrap{position:relative;z-index:2}
+.eyebrow{color:var(--lime);margin:0 0 18px}
+.hero h1{font-size:clamp(4.2rem,17vw,13.5rem);margin:0 0 22px}
+.hero h1 em{font-style:normal;color:var(--lime)}
+.hero .sub{font-size:clamp(1.1rem,2.4vw,1.5rem);max-width:30ch;margin:0 0 28px;color:var(--on-dark)}
+.meta{display:flex;flex-wrap:wrap;gap:10px 28px;margin:0 0 30px;padding:0;list-style:none;color:var(--lime)}
+.ctas{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:70px}
+.ticker{position:relative;z-index:2;background:var(--lime);color:#0C120E;overflow:hidden;white-space:nowrap;padding:12px 0;border-top:2px solid #0C120E}
+.ticker div{display:inline-block;animation:slide 28s linear infinite}
+@keyframes slide{to{transform:translateX(-50%)}}
+section{padding:96px 0;position:relative}
+.label{color:var(--paper-muted);margin:0 0 14px}
+.dark .label,.forest .label{color:var(--lime)}
+h2.disp{font-size:clamp(2.8rem,8vw,6.4rem);margin:0 0 28px}
+.split{display:grid;gap:48px}
+@media(min-width:900px){.split{grid-template-columns:1.15fr .85fr;align-items:start}}
+.about p{font-size:1.25rem;max-width:44ch;margin:0 0 18px}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:2px solid var(--paper-ink)}
+.stat{padding:22px 0;border-bottom:2px solid var(--paper-ink)}
+.stat:nth-child(odd){padding-right:16px;border-right:2px solid var(--paper-ink)}
+.stat:nth-child(even){padding-left:20px}
+.stat b{display:block;font-size:clamp(3.4rem,9vw,6rem)}
+.stat b{font-family:"Big Shoulders Display",Impact,sans-serif;font-weight:900;line-height:.9;color:var(--forest)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .stat b{color:var(--lime)}}
+.track{display:grid;grid-template-columns:70px 1fr;gap:6px 18px;align-items:center;padding:26px 0;border-top:1px solid var(--dark-line);transition:background .2s,padding .2s}
+@media(min-width:800px){.track{grid-template-columns:90px 1.1fr 1.4fr 70px}}
+.track:last-child{border-bottom:1px solid var(--dark-line)}
+.track:hover{background:rgba(61,220,132,.08);padding-left:14px}
+.track .n{color:var(--lime);font-size:clamp(2.6rem,6vw,4rem)}
+.track h3{margin:0;font-size:clamp(2rem,5vw,3.4rem)}
+.track p{margin:0;color:var(--dark-muted);grid-column:2}
+@media(min-width:800px){.track p{grid-column:auto}}
+.track svg{width:56px;height:56px;justify-self:end;display:none;stroke:var(--lime);fill:none;stroke-width:1.6}
+@media(min-width:800px){.track svg{display:block}}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0;border-top:2px solid var(--paper-ink)}
+.step{padding:24px 22px 28px 0;border-bottom:2px solid var(--paper-ink)}
+.step .n{color:var(--forest)}
+.step h3{margin:8px 0 8px;font-size:2.4rem}
+.step p{margin:0;color:var(--paper-muted)}
+.sched{display:grid;gap:36px}
+@media(min-width:960px){.sched{grid-template-columns:1.6fr 1fr}}
+.legend{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px}
+.tag{padding:4px 10px;border:1px solid var(--dark-line);color:var(--dark-muted)}
+.day h3{margin:0 0 12px;font-size:2.4rem;color:var(--lime)}
+.ev{display:flex;align-items:center;gap:16px;border-top:1px solid var(--dark-line);padding:14px 0}
+.ev time{min-width:92px;color:var(--lime)}
+.ev span{flex:1;font-weight:500}
+.ev small{display:block;color:var(--dark-muted);font-weight:400}
+.ev .tp{font-size:.66rem;color:var(--dark-muted);border:1px solid var(--dark-line);padding:2px 8px}
+.ev button{background:transparent;border:2px solid var(--lime);color:var(--lime);font-family:"JetBrains Mono",monospace;font-weight:700;font-size:.75rem;text-transform:uppercase;padding:6px 12px;cursor:pointer}
+.ev button[aria-pressed="true"]{background:var(--lime);color:#0C120E}
+.mine{background:var(--lime);color:#0C120E;padding:24px;align-self:start;position:sticky;top:calc(env(safe-area-inset-top,0px) + 80px)}
+.mine h3{margin:0 0 12px;font-size:2.4rem}
+.mine ol{margin:6px 0 16px;padding-left:20px}
+.mine .btn{background:transparent;color:#0C120E;border-color:#0C120E}
+.tbd{margin-top:36px;border:2px dashed var(--dark-line);padding:24px}
+.tbd b{font-size:2rem}
+.prizes{display:grid;gap:0;border-top:2px solid var(--paper-ink)}
+@media(min-width:800px){.prizes{grid-template-columns:1.4fr 1fr 1fr}}
+.prize{padding:26px 22px 30px 0;border-bottom:2px solid var(--paper-ink)}
+@media(min-width:800px){.prize{border-bottom:2px solid var(--paper-ink);padding-left:22px;border-left:2px solid var(--paper-ink)}.prize:first-child{padding-left:0;border-left:0}}
+.prize b{display:block;font-size:clamp(4rem,11vw,8.5rem);font-family:"Big Shoulders Display",Impact,sans-serif;font-weight:900;line-height:.9;color:var(--forest)}
+.prize.first b{font-size:clamp(5.5rem,15vw,11rem)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .prize b{color:var(--lime)}}
+.judge{margin-top:34px;display:grid;gap:20px}
+@media(min-width:800px){.judge{grid-template-columns:1fr 1fr}}
+.judge div{background:var(--card);padding:22px}
+.judge h3{margin:0 0 6px;font-size:2rem}
+.judge p{margin:0;color:var(--paper-muted)}
+.spaces{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0;border-top:1px solid var(--dark-line)}
+.spaces div{padding:22px 18px 22px 0;border-bottom:1px solid var(--dark-line)}
+.spaces b{display:block;font-size:2.2rem;color:var(--lime)}
+.spaces span{color:var(--dark-muted)}
+.partners{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.partner{border:2px solid var(--paper-ink);min-height:120px;display:flex;align-items:center;justify-content:center;text-align:center;padding:16px}
+.partner.tbd2{border-style:dashed;border-color:var(--paper-line);color:var(--paper-muted)}
+details{border-top:1px solid var(--dark-line);padding:18px 0}
+details:last-of-type{border-bottom:1px solid var(--dark-line)}
+summary{font-size:1.2rem;font-weight:600;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::after{content:"+";color:var(--lime);font-size:1.6rem;line-height:1}
+details[open] summary::after{content:"\2212"}
+details p{margin:12px 0 0;color:var(--dark-muted);max-width:60ch}
+.final{text-align:center;overflow:hidden}
+.final h2{font-size:clamp(3.4rem,13vw,11rem);margin:0 0 24px}
+.final h2 em{font-style:normal;color:var(--lime)}
+.final p{max-width:46ch;margin:0 auto 30px;color:var(--dark-muted)}
+footer{padding:32px 0 44px;color:var(--dark-muted)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .7s,transform .7s}
+.rv.in{opacity:1;transform:none}
+@media(max-width:760px){nav ul{display:none}.ev{flex-wrap:wrap}.stat:nth-child(odd),.stat:nth-child(even){padding-left:0}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ticker div{animation:none}.rv{opacity:1;transform:none;transition:none}.btn:hover{transform:none}}
+</style>
+</head>
+<body>
+<header class="dark"><div class="wrap"><nav>
+<a class="logo disp" href="#top" aria-label="Sustainable Project Hackathon home">
+<svg viewBox="0 0 40 40" aria-hidden="true" fill="none" stroke="#3DDC84" stroke-width="2"><ellipse cx="20" cy="20" rx="17" ry="15"/><ellipse cx="21" cy="20" rx="11" ry="9.5"/><ellipse cx="22" cy="20" rx="5" ry="4"/></svg>
+<span>SPH 2026</span></a>
+<ul class="mono"><li><a href="#about">About</a></li><li><a href="#tracks">Tracks</a></li><li><a href="#schedule">Schedule</a></li><li><a href="#prizes">Prizes</a></li><li><a href="#faq">FAQ</a></li><li><a href="#partners">Sponsors</a></li></ul>
+<a class="btn sm" href="#" data-form>Register</a>
+</nav></div></header>
+
+<main id="top">
+<div class="hero dark">
+<canvas id="rain" aria-hidden="true"></canvas>
+<svg id="topo" aria-hidden="true" preserveAspectRatio="xMidYMid slice"></svg>
+<div class="wrap">
+<p class="eyebrow mono">Tufts University / Sustainable Project Hackathon</p>
+<h1 class="disp">Build<br>what's <em>next.</em></h1>
+<p class="sub">24 hours to rethink, redesign, and build a more sustainable Tufts.</p>
+<ul class="meta mono"><li>Nov 14-15, 2026</li><li>Tufts Medford/Somerville</li><li>Any major</li></ul>
+<div class="ctas"><a class="btn" href="#" data-form>Register now</a><a class="btn line" href="#tracks">Explore the challenge</a></div>
+</div>
+<div class="ticker mono" aria-hidden="true"><div id="tick"></div></div>
+</div>
+
+<section id="about"><div class="wrap split about">
+<div class="rv">
+<p class="label mono">01 / About</p>
+<h2 class="disp">Any career is a green career.</h2>
+<p>Many of us care about climate change but feel stuck, because we only see a few kinds of solutions. This hackathon is where that changes.</p>
+<p>Teams of 3 to 5 students from every field take on real Tufts challenges, learn from workshops and mentors, and turn ideas into working solutions. Beginners are welcome.</p>
+</div>
+<div class="stats rv">
+<div class="stat"><b>24</b><span class="mono">Hours</span></div>
+<div class="stat"><b>3-5</b><span class="mono">Per team</span></div>
+<div class="stat"><b>5</b><span class="mono">Tracks</span></div>
+<div class="stat"><b>$1,125</b><span class="mono">In prizes</span></div>
+</div>
+</div></section>
+
+<section id="tracks" class="dark"><div class="wrap">
+<p class="label mono rv">02 / The challenge</p>
+<h2 class="disp rv">Pick a track.</h2>
+<div id="tracklist"></div>
+<p class="mono rv" style="color:var(--dark-muted);margin-top:22px">Tracks may change as sponsors are confirmed.</p>
+</div></section>
+
+<section><div class="wrap">
+<p class="label mono rv">03 / The build</p>
+<h2 class="disp rv">How it works.</h2>
+<div class="steps rv">
+<div class="step"><span class="n mono">Step 01</span><h3 class="disp">Team up</h3><p>Form a team of 3 to 5. Group changes are open until 2:00 pm Saturday.</p></div>
+<div class="step"><span class="n mono">Step 02</span><h3 class="disp">Get your track</h3><p>Tracks are announced at 2:30 pm, and sponsors are on hand for questions.</p></div>
+<div class="step"><span class="n mono">Step 03</span><h3 class="disp">Build</h3><p>Use workshops and makerspaces to turn your idea into a working solution.</p></div>
+<div class="step"><span class="n mono">Step 04</span><h3 class="disp">Demo</h3><p>Submit by 3:30 pm Sunday and present to the judges.</p></div>
+</div></div></section>
+
+<section id="schedule" class="forest"><div class="wrap">
+<p class="label mono rv">04 / Schedule</p>
+<h2 class="disp rv">Plan your weekend.</h2>
+<div class="legend mono"><span class="tag">Ceremony</span><span class="tag">Build</span><span class="tag">Meal</span><span class="tag">Judging</span></div>
+<div class="sched">
+<div id="events"></div>
+<aside class="mine rv" aria-live="polite"><h3 class="disp">My schedule</h3><div id="mine"></div><button class="btn sm" id="clear" type="button">Clear</button></aside>
+</div>
+<div class="tbd rv"><b class="disp">Workshops: to be determined</b><p style="margin:6px 0 0;color:var(--dark-muted)">Topics and times will be added here soon. Times above may shift slightly before the event.</p></div>
+</div></section>
+
+<section id="prizes"><div class="wrap">
+<p class="label mono rv">05 / Prizes and judging</p>
+<h2 class="disp rv">Build to win.</h2>
+<div class="prizes rv">
+<div class="prize first"><span class="mono">1st place</span><b>$500</b></div>
+<div class="prize"><span class="mono">2nd place</span><b>$375</b></div>
+<div class="prize"><span class="mono">3rd place</span><b>$250</b></div>
+</div>
+<p class="rv" style="max-width:56ch;margin:20px 0 0">Prize money is split within your team. Winners also get help turning their idea into a Green Fund application. Continuing the project is optional.</p>
+<div class="judge rv">
+<div><h3 class="disp">Round 1: by track</h3><p>Each track's judges review projects and recordings and choose one finalist per track.</p></div>
+<div><h3 class="disp">Round 2: finalists</h3><p>Finalists present to a panel for 1st, 2nd, and 3rd place. Judging criteria will be announced.</p></div>
+</div>
+</div></section>
+
+<section class="dark"><div class="wrap">
+<p class="label mono rv">06 / Makerspaces</p>
+<h2 class="disp rv">Build with real tools.</h2>
+<p class="rv" style="max-width:56ch;color:var(--dark-muted)">We are working to open these spaces to hackers, with volunteers to help on the machines. Availability is being confirmed.</p>
+<div class="spaces rv"><div><b class="disp">Craft Center</b><span>Wood, diagrams, prototypes</span></div><div><b class="disp">Data Lab</b><span>GIS and data support</span></div><div><b class="disp">Bray Lab</b><span>Engineering tools</span></div><div><b class="disp">Nolop</b><span>Making and prototyping</span></div></div>
+</div></section>
+
+<section id="partners"><div class="wrap">
+<p class="label mono rv">07 / Sponsors and partners</p>
+<h2 class="disp rv">Backed by Tufts.</h2>
+<div class="partners rv" id="plist"></div>
+</div></section>
+
+<section id="faq" class="dark"><div class="wrap">
+<p class="label mono rv">08 / FAQ</p>
+<h2 class="disp rv">Questions.</h2>
+<div id="faqlist"></div>
+</div></section>
+
+<section class="forest final"><div class="wrap">
+<h2 class="disp rv">Build something <em>meaningful.</em></h2>
+<p class="rv">Gather 2 to 4 friends and register your team before Nov 14.</p>
+<a class="btn rv" href="#" data-form>Register now</a>
+</div></section>
+</main>
+<footer class="dark"><div class="wrap mono"><span>Sustainable Project Hackathon, sponsored by the Green Fund</span><span>Organizers: Michael and Clarabelle / Contact: [add email]</span></div></footer>
+
+<script>
+/* ===== EDIT HERE ===== */
+var FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSfz560VsEM_RUSixJI5FSofe7ObF-xl5SGRBdbSS-0yea9HfQ/viewform?usp=dialog";
+var TRACKS=[
+ ["Consumption","How can Tufts reduce waste from dining halls, dorms, and campus events?","r"],
+ ["Transportation","How can Tufts reduce transportation emissions while making campus travel easier?","t"],
+ ["Technology","How can data analytics/science and AI help universities make better sustainability decisions?","n"],
+ ["Policy","How can universities and governments make smarter climate policy decisions?","p"],
+ ["Education / Communication","How do you bring fun to environmental education?","w"]];
+var DAYS=[
+{name:"Saturday, Nov 14",ev:[
+["s1","11:00 am","Check-in opens","","Ceremony"],["s2","12:00 pm","Opening ceremony","12 to 1 pm, lunch","Ceremony"],["s3","2:00 pm","Group changes and track form due","","Build"],["s4","2:30 pm","Track assignments and hacking starts","","Build"],["s5","6:30 pm","Dinner","6:30 to 8:00 pm","Meal"],["s6","8:00 pm","Rooms close","","Build"]]},
+{name:"Sunday, Nov 15",ev:[
+["u1","8:00 am","Rooms open","","Build"],["u2","8:30 am","Breakfast","","Meal"],["u3","12:00 pm","Lunch","","Meal"],["u4","3:30 pm","Projects due","","Build"],["u5","4:00 pm","Judging round 1","By track","Judging"],["u6","5:00 pm","Judging round 2","Finalists present","Judging"],["u7","7:00 pm","Closing ceremony","Winners announced","Ceremony"]]}];
+var PARTNERS=[["Tufts Green Fund",false],["Track sponsors: to be announced",true],["Workshop partners: to be announced",true],["Makerspace partners: to be announced",true]];
+var FAQ=[
+ ["Who can join?","Students of any major. We expect most hackers to be Tufts students."],
+ ["Do I need a team?","Teams have 3 to 5 students. Group changes are open until 2:00 pm on Saturday."],
+ ["Do I need experience?","No. Workshops, mentors, and volunteers will help beginners."],
+ ["Is food provided?","Yes. We plan to provide meals both days."],
+ ["How are projects judged?","Round 1 is judged by track, with one finalist per track. Finalists present in round 2 for 1st, 2nd, and 3rd place. Criteria will be announced."]];
+/* ===================== */
+
+document.querySelectorAll("[data-form]").forEach(function(a){a.href=FORM_URL;a.target="_blank";a.rel="noopener";});
+var reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+// ticker
+var t="24 HOURS / ANY MAJOR / TEAMS OF 3-5 / NOV 14-15 / TUFTS / BUILD WHAT'S NEXT / ";
+document.getElementById("tick").textContent=t.repeat(8);
+
+// topographic contour lines
+(function(){
+  var svg=document.getElementById("topo"),NS="http://www.w3.org/2000/svg";
+  svg.setAttribute("viewBox","0 0 1200 800");
+  function blob(cx,cy,r,ph){var p="";for(var i=0;i<=90;i++){var a=i/90*Math.PI*2,k=1+.13*Math.sin(3*a+ph+r/60)+.07*Math.sin(5*a-ph+r/40);p+=(i?"L":"M")+(cx+Math.cos(a)*r*k*1.25).toFixed(1)+" "+(cy+Math.sin(a)*r*k*.85).toFixed(1);}return p+"Z";}
+  var g=document.createElementNS(NS,"g");svg.appendChild(g);
+  [[900,320,0],[240,640,2]].forEach(function(c){for(var r=30;r<420;r+=34){var p=document.createElementNS(NS,"path");p.setAttribute("d",blob(c[0],c[1],r,c[2]));p.setAttribute("fill","none");p.setAttribute("stroke","#3DDC84");p.setAttribute("stroke-opacity",(.5-r/1000).toFixed(2));p.setAttribute("stroke-width","1.2");g.appendChild(p);}});
+  if(!reduce){window.addEventListener("pointermove",function(e){var x=(e.clientX/innerWidth-.5)*-30,y=(e.clientY/innerHeight-.5)*-20;g.style.transform="translate("+x+"px,"+y+"px)";g.style.transition="transform .4s ease-out";});}
+})();
+
+// interactive code rain
+(function(){
+  var cv=document.getElementById("rain"),ctx=cv.getContext("2d");
+  var chars="01<>{}[]/;=+$&reduce()co2".split(""),fs=16,drops=[],mx=-999,my=-999,w=0,h=0,raf=0;
+  function size(){
+    var r=cv.getBoundingClientRect(),d=window.devicePixelRatio||1;w=r.width;h=r.height;
+    cv.width=w*d;cv.height=h*d;ctx.setTransform(d,0,0,d,0,0);
+    drops=[];for(var i=0;i<Math.ceil(w/fs);i++){drops.push(Math.random()*h/fs);}
+    ctx.fillStyle="#0A130E";ctx.fillRect(0,0,w,h);
+  }
+  function draw(){
+    ctx.fillStyle="rgba(10,19,14,.12)";ctx.fillRect(0,0,w,h);
+    ctx.font="700 "+fs+"px JetBrains Mono, monospace";
+    for(var i=0;i<drops.length;i++){
+      var x=i*fs,y=drops[i]*fs,dx=x-mx,dy=y-my,near=Math.sqrt(dx*dx+dy*dy)<140;
+      ctx.fillStyle=near?"#B8FFD6":"rgba(61,220,132,.75)";
+      ctx.fillText(chars[Math.floor(Math.random()*chars.length)],x,y);
+      drops[i]+=near?1.6:.5;
+      if(y>h&&Math.random()>.975){drops[i]=0;}
+    }
+    raf=requestAnimationFrame(draw);
+  }
+  size();window.addEventListener("resize",size);
+  var hero=cv.parentNode;
+  hero.addEventListener("pointermove",function(e){var r=cv.getBoundingClientRect();mx=e.clientX-r.left;my=e.clientY-r.top;});
+  hero.addEventListener("pointerleave",function(){mx=my=-999;});
+  if(reduce){for(var k=0;k<60;k++){draw();}cancelAnimationFrame(raf);return;}
+  document.addEventListener("visibilitychange",function(){cancelAnimationFrame(raf);if(!document.hidden){raf=requestAnimationFrame(draw);}});
+  raf=requestAnimationFrame(draw);
+})();
+
+// tracks
+var icons={r:'<circle cx="28" cy="28" r="24"/><circle cx="28" cy="28" r="15"/><circle cx="28" cy="28" r="6"/>',t:'<path d="M4 44L24 12l10 18 8-10 10 24z"/>',n:'<circle cx="12" cy="14" r="5"/><circle cx="44" cy="14" r="5"/><circle cx="28" cy="44" r="5"/><path d="M12 14L44 14L28 44Z"/>',p:'<path d="M6 48V20h14v28M22 48V8h14v40M38 48V28h12v20"/>',w:'<path d="M4 28c8-14 14-14 20 0s12 14 28 0"/>'};
+var tl=document.getElementById("tracklist");
+TRACKS.forEach(function(x,i){var d=document.createElement("div");d.className="track rv";
+ d.innerHTML='<span class="n disp">0'+(i+1)+'</span><h3 class="disp"></h3><p></p><svg viewBox="0 0 56 56" aria-hidden="true">'+icons[x[2]]+'</svg>';
+ d.querySelector("h3").textContent=x[0];d.querySelector("p").textContent=x[1];tl.appendChild(d);});
+
+// partners
+var pl=document.getElementById("plist");
+PARTNERS.forEach(function(p){var d=document.createElement("div");d.className="partner mono"+(p[1]?" tbd2":"");d.textContent=p[0];pl.appendChild(d);});
+
+// faq
+var fl=document.getElementById("faqlist");
+FAQ.forEach(function(q){var d=document.createElement("details");d.className="rv";var s=document.createElement("summary");s.textContent=q[0];var p=document.createElement("p");p.textContent=q[1];d.appendChild(s);d.appendChild(p);fl.appendChild(d);});
+
+// schedule + personal list
+var sel={};
+try{sel=JSON.parse(localStorage.getItem("sph-sched")||"{}")||{};}catch(e){sel={};}
+function save(){try{localStorage.setItem("sph-sched",JSON.stringify(sel));}catch(e){}}
+var root=document.getElementById("events");
+DAYS.forEach(function(d){
+  var box=document.createElement("div");box.className="day rv";
+  var h=document.createElement("h3");h.className="disp";h.textContent=d.name;box.appendChild(h);
+  d.ev.forEach(function(e){
+    var row=document.createElement("div");row.className="ev";
+    row.innerHTML='<time class="mono"></time><span></span><em class="tp mono"></em><button type="button"></button>';
+    row.querySelector("time").textContent=e[1];
+    var s=row.querySelector("span");s.textContent=e[2];
+    if(e[3]){var sm=document.createElement("small");sm.textContent=e[3];s.appendChild(sm);}
+    row.querySelector(".tp").textContent=e[4];
+    var b=row.querySelector("button");b.dataset.id=e[0];
+    b.addEventListener("click",function(){if(sel[e[0]]){delete sel[e[0]];}else{sel[e[0]]=1;}save();render();});
+    box.appendChild(row);
+  });
+  root.appendChild(box);
+});
+function render(){
+  document.querySelectorAll(".ev button").forEach(function(b){var on=!!sel[b.dataset.id];b.setAttribute("aria-pressed",on);b.textContent=on?"Added":"Add";});
+  var mine=document.getElementById("mine");mine.innerHTML="";var any=false;
+  DAYS.forEach(function(d){var items=d.ev.filter(function(e){return sel[e[0]];});if(!items.length)return;any=true;
+    var b=document.createElement("b");b.textContent=d.name;mine.appendChild(b);var ol=document.createElement("ol");
+    items.forEach(function(e){var li=document.createElement("li");li.textContent=e[1]+" - "+e[2];ol.appendChild(li);});mine.appendChild(ol);});
+  if(!any){var p=document.createElement("p");p.textContent="Nothing added yet. Tap Add on any event.";mine.appendChild(p);}
+}
+document.getElementById("clear").addEventListener("click",function(){sel={};save();render();});
+render();
+
+// scroll reveal
+var rv=document.querySelectorAll(".rv");
+if("IntersectionObserver" in window&&!reduce){
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}});},{threshold:.12});
+  rv.forEach(function(el){io.observe(el);});
+}else{rv.forEach(function(el){el.classList.add("in");});}
+</script>
+</body>
+</html>
