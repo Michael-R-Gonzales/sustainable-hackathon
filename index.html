@@ -142,11 +142,11 @@ footer a{text-transform:none;letter-spacing:.02em}
 <p class="label mono">01 / About</p>
 <h2 class="disp">Any career is a green career.</h2>
 <p>Many of us care about climate change but feel stuck, because we only see a few kinds of solutions. This hackathon is where that changes.</p>
-<p>Teams of 3 to 5 students from every field take on real Tufts challenges, learn from workshops and mentors, and turn ideas into working solutions. Beginners are welcome.</p>
+<p>Teams of 3 to 5 graduate and undergraduate students from every field take on real Tufts challenges, learn from workshops and mentors, and turn ideas into working solutions. Beginners are welcome, and if you don’t have a group, don’t worry: students without a team will form groups on the day of the event.</p>
 </div>
 <div class="stats rv">
 <div class="stat"><b>24</b><span class="mono">Hours</span></div>
-<div class="stat"><b>3-5</b><span class="mono">Per team</span></div>
+<div class="stat"><b>3-5</b><span class="mono">Students per team</span></div>
 <div class="stat"><b>2</b><span class="mono">Days</span></div>
 <div class="stat"><b>$1,125+</b><span class="mono">In prizes</span></div>
 </div>
@@ -156,7 +156,7 @@ footer a{text-transform:none;letter-spacing:.02em}
 <p class="label mono rv">02 / The build</p>
 <h2 class="disp rv">How it works.</h2>
 <div class="steps rv">
-<div class="step"><span class="n mono">Step 01</span><h3 class="disp">Team up</h3><p>Form a team of 3 to 5. Group changes are open until 2:00 pm Saturday.</p></div>
+<div class="step"><span class="n mono">Step 01</span><h3 class="disp">Team up</h3><p>Form a team of 3 to 5 students. No group? You’ll form one on the day. Group changes are open until 2:00 pm Saturday.</p></div>
 <div class="step"><span class="n mono">Step 02</span><h3 class="disp">Get your challenge</h3><p>Challenges are announced at 2:30 pm, and sponsors are on hand for questions.</p></div>
 <div class="step"><span class="n mono">Step 03</span><h3 class="disp">Build</h3><p>Use workshops and makerspaces to turn your idea into a working solution.</p></div>
 <div class="step"><span class="n mono">Step 04</span><h3 class="disp">Demo</h3><p>Submit by 3:30 pm Sunday and present to the judges.</p></div>
@@ -178,7 +178,7 @@ footer a{text-transform:none;letter-spacing:.02em}
 <div class="prize"><span class="mono">2nd place</span><b>$375</b></div>
 <div class="prize"><span class="mono">3rd place</span><b>$250</b></div>
 </div>
-<p class="rv" style="max-width:56ch;margin:20px 0 0">Prize money is subject to change, with the amounts expected to increase. It is split within your team. Winners also get help turning their idea into a Green Fund application. Continuing the project is optional.</p>
+<p class="rv" style="max-width:56ch;margin:20px 0 0">Prize money is subject to change, with the amounts expected to increase. It is split within your team. Winners get the option of turning their idea into a Green Fund project, with direct help filling out the Green Fund application.</p>
 <div class="judge rv">
 <div><h3 class="disp">Round 1: initial review</h3><p>Judges review projects and recordings and choose the finalists.</p></div>
 <div><h3 class="disp">Round 2: finalists</h3><p>Finalists present to a panel for 1st, 2nd, and 3rd place. Judging criteria will be announced.</p></div>
@@ -206,7 +206,6 @@ footer a{text-transform:none;letter-spacing:.02em}
 
 <section class="forest final"><div class="wrap">
 <h2 class="disp rv">Build something <em>meaningful.</em></h2>
-<p class="rv">Gather 2 to 4 friends and register your team before Nov 14.</p>
 <a class="btn rv" href="#" data-form>Register now</a>
 </div></section>
 </main>
@@ -222,9 +221,11 @@ var DAYS=[
 ["8:00 am","Rooms open","","Build"],["8:30 am","Breakfast","","Meal"],["12:00 pm","Lunch","","Meal"],["3:30 pm","Projects due","","Build"],["4:00 pm","Judging round 1","Initial review","Judging"],["5:00 pm","Judging round 2","Finalists present","Judging"],["7:00 pm","Closing ceremony","Winners announced","Ceremony"]]}];
 var FAQ=[
  ["Who can join?","Students of any major. We expect most hackers to be Tufts students."],
- ["Do I need a team?","Teams have 3 to 5 students. Group changes are open until 2:00 pm on Saturday."],
+ ["Do I need a team?","Not before the event. Teams have 3 to 5 graduate and undergraduate students. If you don’t have a group, don’t worry: students without a team will form groups on the day of the event. Group changes are open until 2:00 pm on Saturday."],
  ["Do I need experience?","No. Workshops, mentors, and volunteers will help beginners."],
  ["Is food provided?","Yes. We plan to provide meals both days."],
+ ["What materials are provided?","Microcontrollers and art supplies will be provided, and the makerspaces will be open."],
+ ["What kind of project is the hackathon looking for?","Any! Your project or solution can involve engineering, policy, art, computer science, and more. Judging criteria will be posted soon."],
  ["How are projects judged?","Round 1 is an initial review that picks the finalists. Finalists present in round 2 for 1st, 2nd, and 3rd place. Criteria will be announced."]];
 /* ===================== */
 
@@ -232,7 +233,7 @@ document.querySelectorAll("[data-form]").forEach(function(a){a.href=FORM_URL;a.t
 var reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 // ticker
-var t="24 HOURS / ANY MAJOR / TEAMS OF 3-5 / NOV 14-15 / TUFTS / BUILD WHAT’S NEXT / ";
+var t="24 HOURS / ANY MAJOR / 3-5 STUDENTS PER TEAM / NOV 14-15 / TUFTS / BUILD WHAT’S NEXT / ";
 document.getElementById("tick").textContent=t.repeat(8);
 
 // topographic contour lines
