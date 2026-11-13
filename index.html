@@ -76,6 +76,19 @@ h2.disp{font-size:clamp(2.8rem,8vw,6.4rem);margin:0 0 28px}
 .ev span{flex:1;font-weight:500}
 .ev small{display:block;color:var(--dark-muted);font-weight:400}
 .ev .tp{font-size:.66rem;color:var(--dark-muted);border:1px solid var(--dark-line);padding:2px 8px;font-style:normal}
+.rooms{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 8px;font-size:.72rem}
+.rooms em{font-style:normal;color:var(--dark-muted)}
+.rooms span{border:1px solid var(--lime);color:var(--lime);padding:3px 10px}
+.rm{display:block;margin-top:4px;color:var(--lime);font-size:.72rem;font-weight:500;letter-spacing:.03em}
+.ev.ws{background:rgba(61,220,132,.09);border-left:3px solid var(--lime);padding-left:12px}
+.ev.ws .tp,.ws-tag{border-color:var(--lime);color:var(--lime)}
+.wsec{margin-top:44px}.wsec h3{margin:0;font-size:2.4rem;color:var(--lime)}
+.wgrid{display:grid;gap:16px;margin-top:20px}
+@media(min-width:800px){.wgrid{grid-template-columns:1fr 1fr}}
+.wc{border:1px solid var(--dark-line);padding:22px}
+.wc .when{color:var(--lime);font-size:.75rem;text-transform:uppercase;letter-spacing:.05em}
+.wc h4{margin:8px 0 6px;font-size:1.7rem}
+.wc p{margin:0 0 10px;color:var(--dark-muted)}
 .tbd{margin-top:36px;border:2px dashed var(--dark-line);padding:24px}
 .tbd b{font-size:2rem}
 .prizes{display:grid;gap:0;border-top:2px solid var(--paper-ink)}
@@ -171,9 +184,10 @@ footer a{text-transform:none;letter-spacing:.02em}
 <section id="schedule" class="forest"><div class="wrap">
 <p class="label mono rv">03 / Schedule</p>
 <h2 class="disp rv">Plan your weekend.</h2>
-<div class="legend mono"><span class="tag">Ceremony</span><span class="tag">Build</span><span class="tag">Meal</span><span class="tag">Judging</span></div>
+<div class="legend mono"><span class="tag">Ceremony</span><span class="tag">Build</span><span class="tag">Meal</span><span class="tag">Judging</span><span class="tag ws-tag">Workshop</span></div>
 <div class="sched" id="events"></div>
-<div class="tbd rv"><b class="disp">Workshops: to be determined</b><p style="margin:6px 0 0;color:var(--dark-muted)">Topics and times will be added here soon. Times above may shift slightly before the event.</p></div>
+<div id="workshops" class="wsec rv"><h3 class="disp">Workshops</h3><p style="margin:6px 0 0;color:var(--dark-muted)">Optional and beginner friendly. Drop in on any that interest you. Times and rooms may shift slightly before the event.</p></div>
+<div class="wgrid" id="wgrid"></div>
 <div class="tbd rv" style="border-style:solid;border-color:var(--lime)"><b class="disp">Can’t make it for the whole time?</b><p style="margin:6px 0 18px;color:var(--dark-muted)">Still want to be part of the hackathon? Volunteer!</p><a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSd3Ulb7VCtDdms5FjaTB1leAxp1yioN9TjrFDlQ92FNLzVdPA/viewform?usp=header" target="_blank" rel="noopener">Sign up to volunteer</a></div>
 </div></section>
 
@@ -222,14 +236,36 @@ footer a{text-transform:none;letter-spacing:.02em}
 /* ===== EDIT HERE ===== */
 var FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSfz560VsEM_RUSixJI5FSofe7ObF-xl5SGRBdbSS-0yea9HfQ/viewform?usp=dialog";
 var DAYS=[
-{name:"Saturday, Nov 14",ev:[
-["11:00 am","Check-in opens","","Ceremony"],["12:00 pm","Opening ceremony","12 to 1 pm, lunch","Ceremony"],["2:00 pm","Group changes and form due","","Build"],["2:30 pm","Challenge reveal and hacking starts","","Build"],["6:30 pm","Dinner","6:30 to 8:00 pm","Meal"],["8:00 pm","Rooms close","","Build"]]},
-{name:"Sunday, Nov 15",ev:[
-["8:00 am","Rooms open","","Build"],["8:30 am","Breakfast","","Meal"],["12:00 pm","Lunch","","Meal"],["3:30 pm","Projects due","","Build"],["4:00 pm","Judging round 1","Initial review","Judging"],["5:00 pm","Judging round 2","Finalists present","Judging"],["7:00 pm","Closing ceremony","Winners announced","Ceremony"]]}];
+{name:"Saturday, Nov 14",rooms:["TTC 206","TTC 208"],ev:[
+["11:00 am","Check-in opens","","Ceremony","TTC 208"],
+["12:00 pm","Opening ceremony","12 to 1 pm, lunch","Ceremony","TTC 206 (also TTC 208)"],
+["2:00 pm","Group changes and form due","","Build",""],
+["2:00 pm","Robotics workshop","Beginner intro to microcontrollers","Workshop","TTC 206"],
+["2:30 pm","Challenge reveal and hacking starts","","Build",""],
+["2:30 pm","Q&A with the judges","2:30 to 4:00 pm, ask about your track","Judging","TTC 208"],
+["3:00 pm","Climate Action workshop","","Workshop","TTC 206"],
+["4:00 pm","Tina’s workshop","","Workshop","TTC 206"],
+["6:30 pm","Dinner","6:30 to 8:00 pm","Meal","TTC 206"],
+["8:00 pm","Rooms close","","Build",""]]},
+{name:"Sunday, Nov 15",rooms:["TTC 206","TTC 211","TTC 212"],ev:[
+["8:00 am","Rooms open","","Build","TTC 206, 211, 212"],
+["8:30 am","Breakfast","","Meal","Atrium"],
+["11:00 am","Melissa’s workshop","","Workshop","TTC 211"],
+["12:00 pm","Lunch","","Meal","TTC 206"],
+["3:30 pm","Projects due","","Build",""],
+["4:00 pm","Judging round 1","Initial review","Judging","TTC 206, 211, 212"],
+["5:00 pm","Judging round 2","Finalists present","Judging","TTC 206"],
+["7:00 pm","Closing ceremony","Winners announced","Ceremony",""]]}];
+var WS=[
+{day:"Saturday, Nov 14",time:"2:00 pm",room:"TTC 206",title:"Robotics workshop",blurb:"A beginner-friendly intro to the very basics of using a microcontroller. No experience needed."},
+{day:"Saturday, Nov 14",time:"3:00 pm",room:"TTC 206",title:"Climate Action workshop",blurb:"Topic coming soon."},
+{day:"Saturday, Nov 14",time:"4:00 pm",room:"TTC 206",title:"Tina’s workshop",blurb:"Topic coming soon."},
+{day:"Sunday, Nov 15",time:"11:00 am",room:"TTC 211",title:"Melissa’s workshop",blurb:"Topic coming soon."}];
 var FAQ=[
  ["Who can join?","Students of any major. We expect most hackers to be Tufts students."],
  ["Do I need a team?","Not before the event. Teams have 3 to 5 graduate and undergraduate students. If you don’t have a group, don’t worry: students without a team will form groups on the day of the event. Group changes are open until 2:00 pm on Saturday."],
  ["Do I need experience?","No. Workshops, mentors, and volunteers will help beginners."],
+ ["Where are the workshops?","Saturday: Robotics at 2:00 pm in TTC 206, Climate Action at 3:00 pm in TTC 206, and Tina’s workshop at 4:00 pm in TTC 206. Sunday: Melissa’s workshop at 11:00 am in TTC 211. They are optional, so come to whichever you like."],
  ["Is food provided?","Yes. We plan to provide meals both days."],
  ["What materials are provided?","Microcontrollers and art supplies will be provided, and the makerspaces will be open."],
  ["What kind of project is the hackathon looking for?","Any! Your project or solution can involve engineering, policy, art, computer science, and more. Judging criteria will be posted soon."],
@@ -304,16 +340,33 @@ var root=document.getElementById("events");
 DAYS.forEach(function(d){
   var box=document.createElement("div");box.className="day rv";
   var h=document.createElement("h3");h.className="disp";h.textContent=d.name;box.appendChild(h);
+  var rr=document.createElement("div");rr.className="rooms mono";
+  var lab=document.createElement("em");lab.textContent="Rooms:";rr.appendChild(lab);
+  d.rooms.forEach(function(r){var c=document.createElement("span");c.textContent=r;rr.appendChild(c);});
+  box.appendChild(rr);
   d.ev.forEach(function(e){
-    var row=document.createElement("div");row.className="ev";
+    var row=document.createElement("div");row.className="ev"+(e[3]==="Workshop"?" ws":"");
     row.innerHTML='<time class="mono"></time><span></span><em class="tp mono"></em>';
     row.querySelector("time").textContent=e[0];
     var s=row.querySelector("span");s.textContent=e[1];
     if(e[2]){var sm=document.createElement("small");sm.textContent=e[2];s.appendChild(sm);}
+    if(e[4]){var rm=document.createElement("b");rm.className="rm mono";rm.textContent="Where: "+e[4];s.appendChild(rm);}
     row.querySelector(".tp").textContent=e[3];
     box.appendChild(row);
   });
   root.appendChild(box);
+});
+
+// workshops
+var wroot=document.getElementById("wgrid");
+WS.forEach(function(w){
+  var c=document.createElement("div");c.className="wc rv";
+  c.innerHTML='<span class="when mono"></span><h4 class="disp"></h4><p></p><b class="rm mono"></b>';
+  c.querySelector(".when").textContent=w.day+" / "+w.time;
+  c.querySelector("h4").textContent=w.title;
+  c.querySelector("p").textContent=w.blurb;
+  c.querySelector(".rm").textContent="Where: "+w.room;
+  wroot.appendChild(c);
 });
 
 // scroll reveal
